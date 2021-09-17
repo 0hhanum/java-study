@@ -1,10 +1,5 @@
 import java.util.EmptyStackException;
 
-/*
-자료구조 및 알고리즘 과제 Q-1-1 (배열을 이용한 스택 구성)
-2017110523 오한음
- */
-
 public class ArrayStack <E> {
     private E[] s; // 스택을 위한 배열
     private int top; // 스택 top 의 인덱스

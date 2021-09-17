@@ -1,5 +1,10 @@
 import java.util.Scanner;
 
+/*
+자료구조 및 알고리즘 과제 Q-1-2 (단순 연결 리스트를 이용한 스택 구성)
+2017110523 오한음
+ */
+
 public class DataStructureAssignment1_2 {
     public static void main(String[] args){
         LinkedListStack<String> bracketStack = new LinkedListStack<String>();

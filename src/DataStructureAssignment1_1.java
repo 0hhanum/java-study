@@ -1,5 +1,10 @@
 import java.util.Scanner;
 
+/*
+자료구조 및 알고리즘 과제 Q-1-1 (배열을 이용한 스택 구성)
+2017110523 오한음
+ */
+
 public class DataStructureAssignment1_1 {
 
     public static void main(String[] args){
