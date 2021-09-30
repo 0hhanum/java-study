@@ -10,6 +10,9 @@ import java.util.Scanner;
 => 최대값 탐색할 때 이전 노드와 현재 노드를 저장해 같이 들고 다니며 최대값을 찾았을 시 이전 노드를
 저장하는 방법도 생각해봤는데, 두 개 이상의 노드를 저장해가며 탐색한다는 방식이 스택과 맞지 않는듯 싶어
 어쩔 수 없이 이 방법으로 함. 실패했다고 생각.
+
+=> 노드 자체를 바꿔야한다고 멍청한생각
+새 값 삽입이랑 값 교환의 차이점 얘기 ! 끊어낼 필요가 없음
  */
 
 public class Assignment_SelectionSort {
@@ -27,11 +30,6 @@ public class Assignment_SelectionSort {
         scanner.close();
         stack.printStack();
         Node<Integer> startNode = stack.getTopNode(); // 기준 노드를 얻어옴.
-        //
-        Node<Integer> node = startNode.getNext().getNext().getNext();
-        stack.exchangeNode(startNode, node);
-        stack.printStack();
-        //
         for (int i=0; i < 10; i++){
             Node<Integer> maxNode = startNode;
             // 매번 기준값과 나머지 값을 비교하기 때문에 for 문이 돌 때마다 maxNode 설정.
@@ -44,11 +42,14 @@ public class Assignment_SelectionSort {
                 if (compareNum > maxNum) maxNode = compareNode; // maxNode & compareNode 비교해 maxNode 설정.
             }
             // for 문이 끝나면 기준점에서부터 끝까지의 가장 큰 노드가 구해진다.
-            // max 와 start 노드를 교환한 뒤, start 노드를 max 의 다음 노드로 설정한다.
-            stack.exchangeNode(maxNode, startNode);
-            startNode = maxNode.getNext(); // max 와 start 의 자리를 교환했으므로 max 의 next() 이용해 다음 start 를 지정해준다.
+            // max 와 start 노드의 값을 교환한 뒤, start 노드를 max 의 다음 노드로 설정한다.
+//            stack.exchangeNode(maxNode, startNode);
+            int tmp = maxNode.getItem();
+            maxNode.setItem(startNode.getItem());
+            startNode.setItem(tmp);
+            startNode = startNode.getNext(); // max 와 start 의 자리를 교환했으므로 max 의 next() 이용해 다음 start 를 지정해준다.
         }
-//        stack.printStack();
+        stack.printStack();
 
     }
 }
