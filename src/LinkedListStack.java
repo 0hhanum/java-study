@@ -10,7 +10,7 @@ class Node <E> {
     }
     public E getItem() { return item; } // item 접근자
     public Node<E> getNext() { return next; } // next 접근자
-    public void setItem(E newItem) { item = newItem; }; // item 설정자
+    public void setItem(E newItem) { item = newItem; } // item 설정자
     public void setNext(Node<E> newNext){ next = newNext; } // next 설정자
 }
 
@@ -41,5 +41,34 @@ public class LinkedListStack<E> {
         // ListStack 클래스에서 새 노드가 추가되면 그 노드는 현재의 top Node 를 next 로 가진 뒤 새로운 top 이 된다.
         // 따라서 top 노드 삭제 시, top 아래 노드를 getNext() 메서드로 가져와 새로운 top 으로 변경.
         size--;
+    }
+    public void printStack(){
+        Node<E> node = top;
+        for(int i=0; i<size; i++) {
+            System.out.print(node.getItem() + " ");
+            node = node.getNext();
+        }
+        System.out.println();
+    }
+
+    public void exchangeNode(Node<E> nodeA, Node<E> nodeB){
+        Node<E> prevNodeA = null;
+        Node<E> prevNodeB = null;
+        Node<E> node = top;
+        for(int i=0; i<size; i++){
+            if (node == nodeA) prevNodeA = null;
+            else if (node.getNext() == nodeA) prevNodeA = node;
+
+            if (node == nodeB) prevNodeB = null;
+            else if (node.getNext() == nodeB) prevNodeB = node;
+        }
+        Node<E> tmp = new Node<E> (nodeA.getItem(), nodeA.getNext());
+        nodeA.setNext(nodeB.getNext());
+        nodeA.setItem(nodeB.getItem()); // 아 next랑 아이템 다바꾸면 아무 의미도 없는건데.. 그냥 껍데기만 바뀐거잖아
+        nodeB.setNext(tmp.getNext());
+        nodeB.setItem(tmp.getItem()); // need cleaning code 함수화, prev 다 찾으면 stop.
+        System.out.println("변경완료");
+        if(prevNodeA != null) prevNodeA.setNext(nodeB);
+        if(prevNodeB != null) prevNodeB.setNext(nodeB);
     }
 }
