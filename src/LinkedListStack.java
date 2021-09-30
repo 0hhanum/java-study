@@ -27,6 +27,10 @@ public class LinkedListStack<E> {
         if (empty()) throw new EmptyStackException(); // 스택이 비어있으면 프로그램 정지
         return top.getItem(); // top 노드의 getItem() 메서드를 실행해 노드 내 item 을 얻어온다.
     }
+    public Node<E> getTopNode(){ // top 노드를 반환하는 메서드. [ 추가됨 ]
+        if(empty()) throw new EmptyStackException();
+        return top;
+    }
     public void push(E newItem){
         top = new Node<E>(newItem, top); // top 이 새 노드로 변경, 새 노드는 기존 top 을 next 로 가리키며, top 은 새 노드가 된다.
         size ++; // 스택 항목 수 1 증가.
