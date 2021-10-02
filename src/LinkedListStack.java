@@ -65,4 +65,18 @@ public class LinkedListStack<E> {
         a.setItem(b.getItem());
         b.setItem(tmp);
     }
+    public int findIndex(Node<E> node){ // node 의 인덱스를 찾아주는 메서드.
+        Node<E> searchingNode = top;
+        int index = 0;
+        for(int i=1; i<size + 1; i++){
+            if(searchingNode == node) {
+                index = i;
+                break;
+            };
+            searchingNode = searchingNode.getNext();
+            // node 를 찾으면 인덱스를 반환, 아니면 계속 탐색한다. 인덱스는 1부터 설정하였다.
+        }
+        return index;
+    }
+
 }
