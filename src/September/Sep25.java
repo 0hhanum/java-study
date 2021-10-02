@@ -1,3 +1,5 @@
+package September;
+
 public class Sep25 {
 
     public static void main(String[] args){
@@ -54,7 +56,7 @@ add(3, 5); 와 같이 호출
 클래스, 인스턴스 변수와 마찬가지로 static 이 붙은 메서드가 클래스 메서드. (클래스 변수와 마찬가지로 객체 생성 없이도 호출 가능)
 
 예시
-class MethodExample {
+class September.MethodExample {
   int add(int a, int b) { return a + b; }
 
   static staticMethod() {
@@ -65,7 +67,7 @@ class MethodExample {
 class Main{
   public static void main(String[] args){
   // 인스턴스 메서드를 호출하려면 객체를 생성해야 한다. (인스턴스변수와 동일)
-  MethodExample example = new MethodExample();
+  September.MethodExample example = new September.MethodExample();
   System.out.println(example.add(3,5)); // 객체에서 호출
   }
 }

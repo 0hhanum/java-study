@@ -1,3 +1,5 @@
+package September;
+
 public class Sep28 {
     public static void main(String args[]){
         Car car = new Car("red", 3);
@@ -55,11 +57,11 @@ Example example = new Example();
 ClassName() { } 과 같은 비어있는 생성자를 추가하여 컴파일한다.
 
 매개변수가 있는 생성자
-class Car{
+class September.Car{
   String color;
   int door;
-  Car() {} // 생성자 1
-  Car(String color, int door){ // 생성자 2
+  September.Car() {} // 생성자 1
+  September.Car(String color, int door){ // 생성자 2
     this.color = color; // 생성자 매개변수명과 인스턴스변수명이 같아 구분 위해 this 사용.
     this.door = door;
   }
@@ -76,17 +78,17 @@ class Car{
         첫 줄에서만 가능한 이유는, 생성자 내에서 초기화 작업도중 다른 생성자를 호출하게 되면, 호출된 다른 생성자 내에서도 멤버변수들의 값을 초기화를 할 것이므로 다른 생성자를 호출하기 이전의 초기화 작업과 엉킬 수 있기 때문.
 
         예시
-class Car{
+class September.Car{
     String color;
     int door;
-    Car(){
+    September.Car(){
         this("white", 4)
         // 이렇게 호출이 가능하다. 매개변수를 통해 어떤 생성자를 호출한 것인지 확인.
     }
-    Car(String color){
+    September.Car(String color){
         this(color, 4);
     }
-    Car(String color, int door{
+    September.Car(String color, int door{
         this.color = color;
         this.door = door;
     }
@@ -102,27 +104,27 @@ static 메서드에서 인스턴스 멤버들을 사용할 수 없는 것처럼,
 
         클래스 내의 모든 메서드와 클래스 변수는 인스턴스마다 모두 동일하다. 따라서 다른 값을 가질수 있는 것은 인스턴스변수 뿐이다.
 
-        Car(Car car){
+        September.Car(September.Car car){
         color = car.color;
         door = car.door;
         }
 // 인스턴스를(참조변수) 매개변수로 받아 복사하는 생성자. 동일한 상태의 인스턴스를 생성할 수 있다.
 
         사용예시
-class Car{
+class September.Car{
     String color;
     int door;
 
-    Car(String color, int door){ // 생성자 1
+    September.Car(String color, int door){ // 생성자 1
         this.color = color;
         this.door = door;
     }
 
-    Car(){ // 생성자 2
+    September.Car(){ // 생성자 2
         this("white", 4);
     }
 
-    Car(Car car){ // 생성자 3. 인스턴스(참조변수)를 매개변수로 받음.
+    September.Car(September.Car car){ // 생성자 3. 인스턴스(참조변수)를 매개변수로 받음.
         this.color = car.color;
         this.dor = car.door;
     /*
@@ -133,8 +135,8 @@ class Car{
 }
 class Main{
     public static void main(String[] args){
-        Car car1 = new Car("red", 2);
-        Car car2 = new Car(car1); // 인스턴스 매개변수 생성자 이용.
+        September.Car car1 = new September.Car("red", 2);
+        September.Car car2 = new September.Car(car1); // 인스턴스 매개변수 생성자 이용.
         System.out.println(car1.color);
         System.out.println(car1.door);
         System.out.println(car2.color);

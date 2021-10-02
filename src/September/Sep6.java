@@ -1,3 +1,5 @@
+package September;
+
 import java.util.Scanner;
 
 public class Sep6 {

@@ -1,3 +1,5 @@
+package September;
+
 public class Sep24 {
 }
 
@@ -7,19 +9,19 @@ public class Sep24 {
 
 객체 배열은 참조변수들을 하나로 묶은 참조변수 배열
 
-Tv[] tvArr = new Tv[3];
+September.Tv[] tvArr = new September.Tv[3];
 // 객체 배열의 생성.
 // 이는 객체를 다루기 위한 참조 변수들이 만들어진 것 뿐, 객체가 생성된 것은 아님.
 
-Tv tv1, tv2, tv3; // 과 동일하게 참조변수만 선언한 것.
+September.Tv tv1, tv2, tv3; // 과 동일하게 참조변수만 선언한 것.
 
-tvArr[0] = new Tv(); // 객체 생성 후 참조변수에 주소 저장.
+tvArr[0] = new September.Tv(); // 객체 생성 후 참조변수에 주소 저장.
 
 // 다뤄야 할 객체가 많을 때는 for 문을 이용.
 
-Tv[] tvArr = new Tv[3];
+September.Tv[] tvArr = new September.Tv[3];
 for(int i=0; i<tvArr.length; i++){
-  tvArr[i] = new Tv();
+  tvArr[i] = new September.Tv();
 }
 클래스의 또 다른 정의
 클래스 - 데이터와 함수의 결합

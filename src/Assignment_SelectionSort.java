@@ -13,28 +13,31 @@ import java.util.Scanner;
 
 => 노드 자체를 바꿔야한다고 멍청한생각
 새 값 삽입이랑 값 교환의 차이점 얘기 ! 끊어낼 필요가 없음
+
+노드를 변경해야 할 경우 이전 노드로 next next 이용해 비교하고 이전노드 저장해 주소 변경 next 하고 값 변경하면 될듯?
  */
 
 public class Assignment_SelectionSort {
     public static void main(String[] args){
-        LinkedListStack<Integer> stack = new LinkedListStack<Integer>(); // 제네릭 타입의 클래스기 때문에 Integer wrapper 를 사용합니다.
-        // 과제 1의 링크드리스트 스택을 활용했습니다. 탑 노드 반환을 위해 getTopNode() 메서드를 추가했습니다.
+        LinkedListStack<Integer> linkedList = new LinkedListStack<Integer>(); // 제네릭 타입의 클래스기 때문에 Integer wrapper 를 사용합니다.
+        // 과제 1의 링크드리스트를 활용했습니다. 탑 노드 반환을 위해 getTopNode() 메서드를 추가했습니다.
         // 테스트하며 진행하기 위해 printStack() 메서드를 추가했습니다.
-        // 노드 교체를 위해 exchangeNode() 메서드를 추가했습니다.
         System.out.println("10개의 숫자를 입력하세요. (1, 2, ...)  >");
         Scanner scanner = new Scanner(System.in);
         for(int i=0; i < 10; i++){
             int num = scanner.nextInt();
-            stack.push(num); // 리스트에 10 번 삽입.
+            linkedList.push(num); // 리스트에 10 번 삽입.
         }
         scanner.close();
-        stack.printStack();
-        Node<Integer> startNode = stack.getTopNode(); // 기준 노드를 얻어옴.
+        System.out.print("입력된 숫자 > ");
+        linkedList.printStack();
+
+        Node<Integer> startNode = linkedList.getTopNode(); // 기준 노드를 얻어옴.
         for (int i=0; i < 10; i++){
             Node<Integer> maxNode = startNode;
             // 매번 기준값과 나머지 값을 비교하기 때문에 for 문이 돌 때마다 maxNode 설정.
             Node<Integer> compareNode = startNode;
-            // 비교 노드 선언. maxNode 와 startNode 를 바꿔줘야 하기 때문에 노드를 복제해 진행한다.
+            // 비교 노드 선언. 루프를 돈 후 maxNode 와 startNode 를 바꿔줘야 하기 때문에 노드를 복제해 진행한다.
             for(int j = 0; j < 10 - i - 1; j++){ // 9번, 8번, ... 1번 이렇게 스택을 돈다.
                 compareNode = compareNode.getNext(); // 다음 노드를 얻어온다.
                 int maxNum = maxNode.getItem();
@@ -42,14 +45,13 @@ public class Assignment_SelectionSort {
                 if (compareNum > maxNum) maxNode = compareNode; // maxNode & compareNode 비교해 maxNode 설정.
             }
             // for 문이 끝나면 기준점에서부터 끝까지의 가장 큰 노드가 구해진다.
-            // max 와 start 노드의 값을 교환한 뒤, start 노드를 max 의 다음 노드로 설정한다.
-//            stack.exchangeNode(maxNode, startNode);
+            // max 와 start 노드의 값을 교환한 뒤, start 노드를 현재 start 노드의 다음 노드로 설정한다.
             int tmp = maxNode.getItem();
             maxNode.setItem(startNode.getItem());
             startNode.setItem(tmp);
-            startNode = startNode.getNext(); // max 와 start 의 자리를 교환했으므로 max 의 next() 이용해 다음 start 를 지정해준다.
+            startNode = startNode.getNext();
         }
-        stack.printStack();
-
+        System.out.print("정렬된 숫자 > ");
+        linkedList.printStack();
     }
 }

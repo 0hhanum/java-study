@@ -1,3 +1,5 @@
+package September;
+
 public class Sep26 {
     public static void main(String[] args){
         Sep26 test = new Sep26();
@@ -107,9 +109,9 @@ change 메서드의 매개변수 d 는 지역변수인가? 지역변수는 메�
 
 다른 예제.
 
-public class Sep26 {
+public class September.Sep26 {
     public static void main(String[] args){
-        Sep26 test = new Sep26();
+        September.Sep26 test = new September.Sep26();
         int result = test.add(3, 5);
         System.out.println(result);
 

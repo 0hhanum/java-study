@@ -51,24 +51,18 @@ public class LinkedListStack<E> {
         System.out.println();
     }
 
-    public void exchangeNode(Node<E> nodeA, Node<E> nodeB){
-        Node<E> prevNodeA = null;
-        Node<E> prevNodeB = null;
+    public Node<E> find(int index){
         Node<E> node = top;
-        for(int i=0; i<size; i++){
-            if (node == nodeA) prevNodeA = null;
-            else if (node.getNext() == nodeA) prevNodeA = node;
-
-            if (node == nodeB) prevNodeB = null;
-            else if (node.getNext() == nodeB) prevNodeB = node;
+        for (int i=0; i < index - 1; i++){ // top 노드 부터 시작하므로 index - 1
+            node = node.getNext();
         }
-        Node<E> tmp = new Node<E> (nodeA.getItem(), nodeA.getNext());
-        nodeA.setNext(nodeB.getNext());
-        nodeA.setItem(nodeB.getItem()); // 아 next랑 아이템 다바꾸면 아무 의미도 없는건데.. 그냥 껍데기만 바뀐거잖아
-        nodeB.setNext(tmp.getNext());
-        nodeB.setItem(tmp.getItem()); // need cleaning code 함수화, prev 다 찾으면 stop.
-        System.out.println("변경완료");
-        if(prevNodeA != null) prevNodeA.setNext(nodeB);
-        if(prevNodeB != null) prevNodeB.setNext(nodeB);
+        return node;
+    }
+
+    public void exchangeValue(Node<E> a, Node<E> b){
+        // node a 와 b 의 값을 교환.
+        E tmp = a.getItem();
+        a.setItem(b.getItem());
+        b.setItem(tmp);
     }
 }

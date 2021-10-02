@@ -1,3 +1,5 @@
+package September;
+
 class Tv {
     String color;
     boolean power;
@@ -59,7 +61,7 @@ public class Sep22 {
 
 
 
-class Tv {
+class September.Tv {
     String color;
     boolean power;
     int channel; // 멤버변수
@@ -71,20 +73,20 @@ class Tv {
 
 class TvTest {
     public static void main(String args[]){
-        Tv tv; // Tv 인스턴스 참조변수 tv 선언
-        tv = new Tv(); //Tv 인스턴스 생성
+        September.Tv tv; // September.Tv 인스턴스 참조변수 tv 선언
+        tv = new September.Tv(); //September.Tv 인스턴스 생성
         tv.channel = 7;
         tv.channelUp();
 
-        Tv tv; => 참조변수 선언. 메모리에 tv 를 위한 공간이 마련된다.
+        September.Tv tv; => 참조변수 선언. 메모리에 tv 를 위한 공간이 마련된다.
 
-        tv = new Tv(); 연산자 new 에 의해 Tv 인스턴스가 메모리의 빈 공간에 생성되고 그 주소가 참조변수 tv 에 저장. 인스턴스 내에는 속성과 메서드가 저장되어 있으며, 위 예시에서는 속성의 자료형에 따라 기본값으로 초기화되었다.
+        tv = new September.Tv(); 연산자 new 에 의해 September.Tv 인스턴스가 메모리의 빈 공간에 생성되고 그 주소가 참조변수 tv 에 저장. 인스턴스 내에는 속성과 메서드가 저장되어 있으며, 위 예시에서는 속성의 자료형에 따라 기본값으로 초기화되었다.
 
         인스턴스는 오직 참조변수를 통해서만 다룰 수 있으며 참조변수의 타입은 인스턴스의 타입과 일치해야 한다.
 
                 참조변수의 이해에 좋은 예시.
 
-                class Tv {
+                class September.Tv {
             String color;
             boolean power;
             int channel;
@@ -93,10 +95,10 @@ class TvTest {
             void channelDown() {channel--;}
         }
 
-        public class Sep22 {
+        public class September.Sep22 {
             public static void main(String[] args){
-                Tv tv1 = new Tv();
-                Tv tv2 = new Tv();
+                September.Tv tv1 = new September.Tv();
+                September.Tv tv2 = new September.Tv();
                 tv1.channel = 5;
                 tv2.channel = 3;
                 System.out.println(tv1.channel);

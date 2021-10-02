@@ -1,6 +1,8 @@
+package September;
+
 public class Sep26_2 {
     public static void main(String[] args){
-//        Sep26_2 example = new Sep26_2();
+//        September.Sep26_2 example = new September.Sep26_2();
 //        System.out.println(example.factorial(5));
         System.out.println(factorial(5));
     }
@@ -53,7 +55,7 @@ copyX(data); 가 실행되며 새로운 객체가 생성. 객체는 heap 영역�
 재귀호출은 비효율적(매개변수 복사, 종료 후 복귀할 주소 저장 등)이므로 재귀 호출에 드는 비용보다 재귀호출의 간결함이 주는 이득이 충분히 큰 경우에만 사용하는 것이 좋다.
 
 팩토리얼 함수
-public class Sep26_2 {
+public class September.Sep26_2 {
    public static void main(String[] args){
        System.out.println(factorial(5));
    }

@@ -1,3 +1,5 @@
+package September;
+
 public class Sep27 {
     static String concatenate(int delim, String... args){
         String result = "";
@@ -101,7 +103,7 @@ String concatenate(String... str){ ~ } // 이런식
 가변인자 외에 매개변수가 더 있다면 가변인자를 매개변수 중에서 제일 마지막에 선언해야한다.
 그렇지 않으면 가변인자인지 아닌지를 구별할 방법이 없기 때문에 컴파일 에러가 발생한다.
 
-public class Sep27 {
+public class September.Sep27 {
     static void concatenate(String... strs){
         for(String str : strs){
             System.out.println(str);

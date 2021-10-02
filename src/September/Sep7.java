@@ -1,6 +1,8 @@
+package September;
+
 import java.util.Scanner;
 /* 369 게임 #1
-public class Sep7 {
+public class September.Sep7 {
     public static void main(String[] args){
         for(int i=1;i<=100;i++){
             System.out.print(i);
@@ -16,7 +18,7 @@ public class Sep7 {
 }
  */
 /* 369 게임 #2
-public class Sep7{
+public class September.Sep7{
     public static void main(String[] args){
         for(int i=1;i<=100;i++){
             System.out.print(i);
