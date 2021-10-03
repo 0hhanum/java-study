@@ -43,7 +43,8 @@ public class LinkedList<E> {
         // 따라서 top 노드 삭제 시, top 아래 노드를 getNext() 메서드로 가져와 새로운 top 으로 변경.
         size--;
     }
-    public void printStack(){
+
+    public void printList(){
         Node<E> node = top;
         for(int i=0; i<size; i++) {
             System.out.print(node.getItem() + " ");
@@ -52,7 +53,7 @@ public class LinkedList<E> {
         System.out.println();
     }
 
-    public Node<E> find(int index){
+    public Node<E> findNode(int index){
         Node<E> node = top;
         for (int i=0; i < index - 1; i++){ // top 노드 부터 시작하므로 index - 1
             node = node.getNext();
@@ -74,7 +75,7 @@ public class LinkedList<E> {
             if(searchingNode == node) {
                 index = i;
                 break;
-            };
+            }
             searchingNode = searchingNode.getNext();
             // node 를 찾으면 인덱스를 반환, 아니면 계속 탐색한다. 인덱스는 1부터 설정하였다.
         }
@@ -91,7 +92,7 @@ public class LinkedList<E> {
         }
         scanner.close();
         System.out.print("입력된 숫자 > ");
-        linkedList.printStack();
+        linkedList.printList();
 
         return linkedList;
     }
