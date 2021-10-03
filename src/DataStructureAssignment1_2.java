@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class DataStructureAssignment1_2 {
     public static void main(String[] args){
-        LinkedListStack<String> bracketStack = new LinkedListStack<String>();
+        LinkedList<String> bracketStack = new LinkedList<String>();
         System.out.print("Input brackets. Example -> {}{(()}{}{}) >  ");
         Scanner scanner = new Scanner(System.in);
         String tmp = scanner.nextLine();

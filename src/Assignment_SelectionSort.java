@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 /*
 배열은 교환 시마다 전부 뺐다가 다시 넣어야 할 것같아 링크드리스트 선택.
 근데 단뱡향 링크드다 보니 이전 노드를 기억 못해 오히려 번거로움, 단순히 값만 다루는 게 아니라
@@ -17,20 +15,14 @@ import java.util.Scanner;
 노드를 변경해야 할 경우 이전 노드로 next next 이용해 비교하고 이전노드 저장해 주소 변경 next 하고 값 변경하면 될듯?
  */
 
+
+// createTenSizeList() 메서드 생성.
+// 테스트하며 진행하기 위해 printStack() 메서드를 추가했습니다.
+// 과제 1의 링크드리스트를 활용했습니다. 탑 노드 반환을 위해 getTopNode() 메서드를 추가했습니다.
+
 public class Assignment_SelectionSort {
     public static void main(String[] args){
-        LinkedListStack<Integer> linkedList = new LinkedListStack<Integer>(); // 제네릭 타입의 클래스기 때문에 Integer wrapper 를 사용합니다.
-        // 과제 1의 링크드리스트를 활용했습니다. 탑 노드 반환을 위해 getTopNode() 메서드를 추가했습니다.
-        // 테스트하며 진행하기 위해 printStack() 메서드를 추가했습니다.
-        System.out.println("10개의 숫자를 입력하세요. (1, 2, ...)  >");
-        Scanner scanner = new Scanner(System.in);
-        for(int i=0; i < 10; i++){
-            int num = scanner.nextInt();
-            linkedList.push(num); // 리스트에 10 번 삽입.
-        }
-        scanner.close();
-        System.out.print("입력된 숫자 > ");
-        linkedList.printStack();
+        LinkedList<Integer> linkedList = LinkedList.createTenSizeList();
 
         Node<Integer> startNode = linkedList.getTopNode(); // 기준 노드를 얻어옴.
         for (int i=0; i < 10; i++){
