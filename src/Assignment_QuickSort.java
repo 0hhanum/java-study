@@ -1,6 +1,11 @@
 import java.util.Scanner;
 
 // find() 메서드 생성. exchangeValue() 메서드 생성. findIndex 메서드 생성.
+/*
+L 은 크거나 같은 => 피봇까지 가면 멈출 수밖에 없음
+R 은 작은 => 피봇을 넘어갈 수 있음
+=> 그래서 L 과 R 이 만나면 피봇과 R 의 원소를 교환. => 이게 포인트임.
+ */
 
 public class Assignment_QuickSort {
     static LinkedListStack<Integer> linkedList = new LinkedListStack<Integer>();
@@ -18,11 +23,11 @@ public class Assignment_QuickSort {
         scanner.close();
         System.out.print("입력된 숫자 > ");
         linkedList.printStack();
-//        System.out.println("=======================");
 
+//        System.out.println("=======================");
         quickSort(1, linkedList.size()); // 정렬 시행.
-
 //        System.out.println("=======================");
+
         System.out.print("\n정렬 결과 > ");
         linkedList.printStack();
     }
@@ -44,7 +49,7 @@ public class Assignment_QuickSort {
         boolean toggleR = false; // pivot 보다 크고 작은 원소를 찾았는지 아닌지 찾는 스위치 생성.
 
         while (L != R) { // L 과 R 이 만나기 전까지 진행.
-            if (L.getItem() > pivot.getItem() && !toggleL) {
+            if (L.getItem() >= pivot.getItem() && !toggleL) {
                 // L 값을 찾지 못한 경우에만 연산을 시행한다.
                 toggleL = true; // pivot 보다 큰 값을 찾았다면 toggleL ON
             }
@@ -54,6 +59,7 @@ public class Assignment_QuickSort {
             }
             if (toggleL && toggleR) { // L R 모두 pivot 보다 크고 작은 값을 찾았다면 값을 교환.
                 linkedList.exchangeValue(L, R);
+                if(L == pivot) pivot = R; // 만약 L 이 피봇인 경우, 피봇의 위치교환이 일어난 것이므로 변수 pivot 도 재 지정이 필요함.
                 toggleL = false;
                 toggleR = false; // 교환이 일어난 경우, 탐색을 계속해야 하므로 스위치를 내려준다.
             }
@@ -62,20 +68,13 @@ public class Assignment_QuickSort {
             if (L == R) break; // L 과 R 이 바로 옆인 경우 서로 한 칸씩 이동하면 엇갈릴 수 있다.
             if (!toggleR) R = linkedList.find(tmpTo-- - 1); // pivot 보다 작은 원소를 찾지 못했을 경우 한 칸 이동.
         }
-        // 설명 추가하기. L 이나 R 에서 find 일어난 경우만 pivot 을 교체한다. 아니면 기존 피봇으로 부분집합 나눠 진행.
-        if (L.getItem() > pivot.getItem()) toggleL = true;
-        else if (R.getItem() < pivot.getItem()) toggleR = true;
-
-        if (toggleL) {
-            linkedList.exchangeValue(L, pivot); // L 만 찾았을 경우 pivot 과 L 교환.
-            pivot = L; // while 문 밖에서 L 과 R 이 같은 상태이므로 pivot 을 L 로 변경.
-             }
-        else if (toggleR) {
-            linkedList.exchangeValue(R, pivot); // R 만 찾았을 경우 pivot 과 R 교환.
-            pivot = L; // while 문 밖에서 L 과 R 이 같은 상태이므로 pivot 을 L 로 변경.
-             }
-//        else return; // L, R 스위치가 모두 꺼져있을 경우 종료. (정렬이 다 되어있다는 뜻)
-
+        /*
+        위에서 피봇 변경 일어날 경우 피봇 재설정 필요.
+        R 과 피봇 변경해줌.
+         */
+        // 변경이 끝나면 피봇과 R 의 원소를 교환해준다.
+        linkedList.exchangeValue(R, pivot);
+        pivot = R; // 값을 교환했으므로 피봇의 위치 재 지정.
 
         int pivotIndex = linkedList.findIndex(pivot);
         System.out.print("중간 수행 결과 > ");
