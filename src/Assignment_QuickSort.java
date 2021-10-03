@@ -33,14 +33,9 @@ public class Assignment_QuickSort {
 
         int size = to - from ;
 
-//        System.out.println("=======================");
-//        System.out.println(size);
-//        System.out.println(from);
-//        System.out.println(to);
-//
-//        System.out.println("=======================");
         if (size <= 0) return; // 부분집합의 원소가 한 개이거나 없으면 종료. (확정된 원소가 서로 붙어있을 때는 부분집합의 원소가 없다.)
 //        else if (size % 2 != 0) size++; // 부분집합 원소가 홀수개일 경우 가운데 원소를 pivot 지정 위해 1 키워줌.
+
         Node<Integer> pivot = linkedList.find(from + (size / 2)); // from 부터 시작해 가운데 원소를 pivot 지정. // 추가설명 필요
         Node<Integer> L = linkedList.find(from);
         Node<Integer> R = linkedList.find(to); // L 과 R 을 지정.
@@ -64,13 +59,13 @@ public class Assignment_QuickSort {
             }
 
             if (!toggleL) L = linkedList.find(tmpFrom++ + 1); // pivot 보다 큰 원소를 찾지 못했을 경우 한 칸 이동.
-            if (L == R) {  // L 과 R 이 바로 옆인 경우 서로 한 칸씩 이동하면 엇갈릴 수 있다.
-                if (L.getItem() > pivot.getItem()) toggleL = true;
-                else if (R.getItem() < pivot.getItem()) toggleR = true;
-                }
+            if (L == R) break; // L 과 R 이 바로 옆인 경우 서로 한 칸씩 이동하면 엇갈릴 수 있다.
             if (!toggleR) R = linkedList.find(tmpTo-- - 1); // pivot 보다 작은 원소를 찾지 못했을 경우 한 칸 이동.
         }
         // 설명 추가하기. L 이나 R 에서 find 일어난 경우만 pivot 을 교체한다. 아니면 기존 피봇으로 부분집합 나눠 진행.
+        if (L.getItem() > pivot.getItem()) toggleL = true;
+        else if (R.getItem() < pivot.getItem()) toggleR = true;
+
         if (toggleL) {
             linkedList.exchangeValue(L, pivot); // L 만 찾았을 경우 pivot 과 L 교환.
             pivot = L; // while 문 밖에서 L 과 R 이 같은 상태이므로 pivot 을 L 로 변경.
