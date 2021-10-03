@@ -18,16 +18,30 @@ public class Assignment_QuickSort {
         scanner.close();
         System.out.print("입력된 숫자 > ");
         linkedList.printStack();
-        System.out.println();
-        quickSort(1, linkedList.size());
+//        System.out.println("=======================");
+
+        quickSort(1, linkedList.size()); // 정렬 시행.
+
+//        System.out.println("=======================");
+        System.out.print("\n정렬 결과 > ");
         linkedList.printStack();
     }
 
     public static void quickSort(int from, int to) { // 분할정복을 위해 시작, 끝점을 인자로 설정.
-        int size = to - from;
-        if (size == 0) return; // 부분집합의 원소가 한 개이면 종료.
-        else if (size % 2 != 0) size++; // 부분집합 원소가 홀수개일 경우 가운데 원소를 pivot 지정 위해 1 키워줌.
-        Node<Integer> pivot = linkedList.find(from + (size / 2)); // from 부터 시작해 가운데 원소를 pivot 지정.
+        int tmpFrom = from;
+        int tmpTo = to; // from 과 to 부터 1칸씩 이동하며 탐색 후, 재귀로 from to 를 다시 호출해야 하기 때문에 값을 복사해 진행.
+
+        int size = to - from ;
+
+//        System.out.println("=======================");
+//        System.out.println(size);
+//        System.out.println(from);
+//        System.out.println(to);
+//
+//        System.out.println("=======================");
+        if (size <= 0) return; // 부분집합의 원소가 한 개이거나 없으면 종료. (확정된 원소가 서로 붙어있을 때는 부분집합의 원소가 없다.)
+//        else if (size % 2 != 0) size++; // 부분집합 원소가 홀수개일 경우 가운데 원소를 pivot 지정 위해 1 키워줌.
+        Node<Integer> pivot = linkedList.find(from + (size / 2)); // from 부터 시작해 가운데 원소를 pivot 지정. // 추가설명 필요
         Node<Integer> L = linkedList.find(from);
         Node<Integer> R = linkedList.find(to); // L 과 R 을 지정.
 
@@ -35,11 +49,11 @@ public class Assignment_QuickSort {
         boolean toggleR = false; // pivot 보다 크고 작은 원소를 찾았는지 아닌지 찾는 스위치 생성.
 
         while (L != R) { // L 과 R 이 만나기 전까지 진행.
-            if ((int) L.getItem() > (int) pivot.getItem() && !toggleL) { // wrapper Integer 클래스이므로 형변환이 필요
+            if (L.getItem() > pivot.getItem() && !toggleL) {
                 // L 값을 찾지 못한 경우에만 연산을 시행한다.
                 toggleL = true; // pivot 보다 큰 값을 찾았다면 toggleL ON
             }
-            if ((int) R.getItem() < (int) pivot.getItem() && !toggleR) { // pivot 보다 작은 값을 찾았다면 toggleR ON
+            if (R.getItem() < pivot.getItem() && !toggleR) { // pivot 보다 작은 값을 찾았다면 toggleR ON
                 // R 값을 찾지 못한 경우에만 연산을 시행한다.
                 toggleR = true;
             }
@@ -49,18 +63,33 @@ public class Assignment_QuickSort {
                 toggleR = false; // 교환이 일어난 경우, 탐색을 계속해야 하므로 스위치를 내려준다.
             }
 
-            if (!toggleL) L = linkedList.find(from++ + 1); // pivot 보다 큰 원소를 찾지 못했을 경우 한 칸 이동.
-            if (L == R) break; // L 과 R 이 바로 옆인 경우 서로 한 칸씩 이동하면 엇갈릴 수 있다. 이럴 경우 break.
-            if (!toggleR) R = linkedList.find(to-- - 1); // pivot 보다 작은 원소를 찾지 못했을 경우 한 칸 이동.
+            if (!toggleL) L = linkedList.find(tmpFrom++ + 1); // pivot 보다 큰 원소를 찾지 못했을 경우 한 칸 이동.
+            if (L == R) {  // L 과 R 이 바로 옆인 경우 서로 한 칸씩 이동하면 엇갈릴 수 있다.
+                if (L.getItem() > pivot.getItem()) toggleL = true;
+                else if (R.getItem() < pivot.getItem()) toggleR = true;
+                }
+            if (!toggleR) R = linkedList.find(tmpTo-- - 1); // pivot 보다 작은 원소를 찾지 못했을 경우 한 칸 이동.
         }
-        if (toggleL) linkedList.exchangeValue(L, pivot); // L 만 찾았을 경우 pivot 과 L 교환.
-        else if (toggleR) linkedList.exchangeValue(R, pivot); // R 만 찾았을 경우 pivot 과 R 교환.
-        else return; // L, R 스위치가 모두 꺼져있을 경우 종료. (정렬이 다 되어있다는 뜻)
+        // 설명 추가하기. L 이나 R 에서 find 일어난 경우만 pivot 을 교체한다. 아니면 기존 피봇으로 부분집합 나눠 진행.
+        if (toggleL) {
+            linkedList.exchangeValue(L, pivot); // L 만 찾았을 경우 pivot 과 L 교환.
+            pivot = L; // while 문 밖에서 L 과 R 이 같은 상태이므로 pivot 을 L 로 변경.
+             }
+        else if (toggleR) {
+            linkedList.exchangeValue(R, pivot); // R 만 찾았을 경우 pivot 과 R 교환.
+            pivot = L; // while 문 밖에서 L 과 R 이 같은 상태이므로 pivot 을 L 로 변경.
+             }
+//        else return; // L, R 스위치가 모두 꺼져있을 경우 종료. (정렬이 다 되어있다는 뜻)
 
-        pivot = L; // while 문 밖에서 L 과 R 이 같은 상태이므로 pivot 을 L 로 변경.
+
         int pivotIndex = linkedList.findIndex(pivot);
+        System.out.print("중간 수행 결과 > ");
         linkedList.printStack();
-        quickSort(from, pivotIndex);
-        quickSort(pivotIndex, to); // 시작점 ~ pivot, pivot ~ 끝점 으로 나누어 정렬을 재귀 진행한다.
+        System.out.println("현재 피봇: " + pivot.getItem());
+        quickSort(from, pivotIndex - 1);
+        quickSort(pivotIndex + 1, to); // pivot 을 기준으로 두 부분집합으로 나누어 정렬을 재귀 진행한다.
     }
 }
+
+// 22 31 8 16 2 30 10 69
+// 10 3 482 319 12 3 4 5 1 7
