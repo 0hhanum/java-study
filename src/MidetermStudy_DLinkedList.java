@@ -71,4 +71,5 @@ class DLinkedList{
         }
         System.out.println();
     }
+    // search 만드려면 null 검사 해야함.
 }
