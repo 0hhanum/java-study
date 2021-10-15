@@ -1,7 +1,7 @@
 import java.util.Arrays;
 import java.util.NoSuchElementException;
 
-public class MidtermStudy {
+public class MidtermStudy_Array {
     static public class ArrayIntList{ // int 배열 구현.
         private  int[] array; // 배열 선언
         private int size; // 리스트의 항목 수, array[size] 는 비어있음을 기억. 마지막 원소는 array[size - 1]
