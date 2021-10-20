@@ -20,14 +20,6 @@ public class Assignment3_1 {
 }
 
 class ArrayQueueOnlyInt{
-    /*
-    큐 구성에 필요한 함수
-    - add()
-    - remove()
-    - isEmpty()
-    - isFull()
-     */
-
     private final int[] QUEUE; // 큐를 위한 배열.
     private int front, rear, size;
     public ArrayQueueOnlyInt(){ // 생성자

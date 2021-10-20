@@ -36,19 +36,15 @@ public class Assignment3_2 {
                 node = node.getNext();
             }
             int item = list.delete(node);
-
             // 마지막 원소는 "," 를 출력하지 않는다.
             if(i != N){
                 System.out.print(item + ", ");
-
             } else {
                 System.out.print(item);
             }
         }
         System.out.print(">");
     }
-
-
 }
 
 
@@ -66,7 +62,7 @@ class CircleList{ // 이중연결 노드를 사용
         if (isEmpty()){
             newNode.setNext(newNode);
             newNode.setPrevious(newNode);
-            // 만약 첫 노드라면 prev 와 next 가 자기 자신을 가리키도록 한다.
+            // 만약 첫 노드라면 prev 와 next 가 자기 자신을 가리키도록 한다. -> 원형 리스트로 만들어줌
         } else {
             DNode First = last.getNext();
             newNode.setNext(First);

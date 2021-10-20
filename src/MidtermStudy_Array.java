@@ -15,7 +15,7 @@ public class MidtermStudy_Array {
             }
             return array[k];
         }
-        public void insert(int newInt){ // insert 오버로딩 (마지막에 넣을 때)
+        public void insert(int newInt){ // insert 오버로딩 (마지막에 넣을 때는 인덱스 없이)
             if (size == array.length){
                  resize(2 * array.length);
             }
@@ -23,7 +23,7 @@ public class MidtermStudy_Array {
         }
         public void insert(int newInt, int k){
             if (size == array.length) resize(2 * array.length);
-            for(int i=size - 1; i >= k; i--) { // 순서 주의. 제일 끝자리부터 밀어내는거임. k 번까지 민 다음에 k 자리에 넣기.
+            for (int i=size - 1; i >= k; i--) { // 순서 주의. 제일 끝자리부터 밀어내는거임. k 번까지 민 다음에 k 자리에 넣기.
                 array[i + 1] = array[i];
             }
             array[k] = newInt;

@@ -23,12 +23,15 @@ public class ArrayStack <E> {
         } // push 전 stack 이 꽉 찼다면 2배로 확장해준다.
         s[++top] = newItem; // top + 1 위치에 newItem 넣고, top 은 1 키운다.
     }
-    public void pop(){
+    public E pop(){
         if (empty()) throw new EmptyStackException(); // stack 비어있는데 실행시 프로그램 정지.
+        E item = s[top];
         s[top--] = null; // top 의 원소 삭제 후 top 은 1 줄인다.
         if (size() > 0 && size() == s.length / 4){
             resize(s.length / 2); // pop() 실행 후 stack 이 3/4 이상 비어있다면 스택의 크기를 절반으로 축소.
         }
+
+        return item;
     }
     public E top(){
         if(empty()) throw new EmptyStackException(); // stack 이 비어있으면 에러 던짐.
