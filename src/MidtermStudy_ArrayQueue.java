@@ -20,7 +20,7 @@ class ArrayQueue{
     private int[] queue; // 큐를 위한 배열.
     private int front, rear, size;
     public ArrayQueue(){ // 큐 생성자.
-        queue = new int[2]; // 한 칸을 비우고 사용하니 크기 2 인 배열 생성. [0] [1] 두칸.
+        queue = new int[2]; // 한 칸을 비우고 사용하니 크기 2 인 배열 생성. [0] [1] 두칸. 비어있다고 한 칸만 생성하면 첫 add 부터 resize 가 필요하다.
         front = rear = size = 0;
     }
     public int size() { return size; }

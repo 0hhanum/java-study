@@ -36,7 +36,7 @@ class DLinkedList{
     public DLinkedList(){
         // head, tail 은 실제로 항목을 저장하지 않는 dummy 노드. (Size 가 0이다)
         head = new DNode(0, null, null);
-        tail = new DNode(0, head, null);
+        tail = new DNode(0, head, null); // 역순으로도 탐색이 가능하도록 tail 을 둔다.
         head.setNext(tail); // 순서
         size = 0;
     }
