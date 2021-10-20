@@ -1,13 +1,13 @@
 import java.util.Scanner;
 
-public class Palindrome {
+public class MidtermStudy_Palindrome {
     public static void main(String[] args){
         ArrayStack<Character> stack = new ArrayStack<Character>();
         // 제네릭 이용해 만든 배열이기 때문에 Character 클래스 사용
         Scanner scanner = new Scanner(System.in);
         System.out.println("Input string to check if it is palindrome. >");
         String inputString = scanner.nextLine(); // 문자열을 입력받는다.
-
+        scanner.close();
         int middle = inputString.length() / 2; // 문자열의 가운데 인덱스를 위한 변수 middle 선언.
 
         for(int i=0;i<middle;i++){
