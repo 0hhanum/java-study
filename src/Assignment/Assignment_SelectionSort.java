@@ -1,3 +1,7 @@
+package Assignment;
+
+import MidtermStudy.LinkedList;
+import MidtermStudy.Node;
 
 public class Assignment_SelectionSort {
     // 과제 1 의 링크드리스트를 활용했습니다.

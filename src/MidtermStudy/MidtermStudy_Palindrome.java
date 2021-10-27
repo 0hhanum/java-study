@@ -1,3 +1,5 @@
+package MidtermStudy;
+
 import java.util.Scanner;
 
 public class MidtermStudy_Palindrome {

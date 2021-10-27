@@ -1,8 +1,12 @@
+package Assignment;
+import MidtermStudy.LinkedList;
+import MidtermStudy.Node;
+
 
 public class Assignment_QuickSort {
     /*
      문제 풀이를 위한 findNode(int i), exchangeValue(Node a, Node b), findIndex(node a)
-     메서드를 LinkedList 클래스에 정의했습니다.
+     메서드를 MidtermStudy.LinkedList 클래스에 정의했습니다.
      findNode(int i) 는 i 번째 노드를 반환합니다.
      exchangeValue(Node a, Node b) 는 a 와 b 의 item 을 서로 교환합니다.
      findIndex(node a) 는 리스트 내에서 a 의 순서를 반환합니다.

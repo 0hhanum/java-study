@@ -1,4 +1,5 @@
-import java.util.Arrays;
+package Assignment;
+
 import java.util.Scanner;
 
 /*

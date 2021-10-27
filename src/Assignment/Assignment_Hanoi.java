@@ -1,3 +1,5 @@
+package Assignment;
+
 import java.util.Scanner;
 
 public class Assignment_Hanoi {

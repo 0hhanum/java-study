@@ -1,3 +1,5 @@
+package Assignment;
+
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 /*
@@ -108,4 +110,23 @@ class CircleList{ // 이중연결 노드를 사용
         }
         System.out.println();
     }
+}
+
+
+class DNode{ // 이중연결 노드
+    private int item;
+    private DNode previous;
+    private DNode next;
+
+    public DNode(int newItem, DNode previous, DNode next){
+        item = newItem;
+        this.previous = previous;
+        this.next = next;
+    }
+    public int getItem() { return item; }
+    public DNode getPrevious() { return previous; }
+    public DNode getNext() { return next; }
+    public void setItem(int newItem){ item = newItem; }
+    public void setPrevious(DNode p){previous = p;}
+    public void setNext(DNode n){next = n;}
 }

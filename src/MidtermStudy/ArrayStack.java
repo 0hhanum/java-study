@@ -1,3 +1,4 @@
+package MidtermStudy;
 import java.util.EmptyStackException;
 
 public class ArrayStack <E> {

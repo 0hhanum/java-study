@@ -1,3 +1,5 @@
+package Assignment;
+
 import java.util.Scanner;
 
 /*
@@ -6,7 +8,6 @@ import java.util.Scanner;
  */
 
 public class DataStructureAssignment1_1 {
-
     public static void main(String[] args){
         ArrayStack<String> bracketStack = new ArrayStack<String>();
         System.out.print("Input brackets. Example -> {}{(()}{}{}) >  ");
@@ -39,5 +40,5 @@ public class DataStructureAssignment1_1 {
 }
 
 
-class InputOnlyBracketException extends RuntimeException{};
-class WrongOrderBracketException extends RuntimeException{};
+class InputOnlyBracketException extends RuntimeException{}
+class WrongOrderBracketException extends RuntimeException{}
