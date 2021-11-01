@@ -32,6 +32,7 @@ public class Assignment4_1 {
         Scanner scanner = new Scanner(System.in);
         System.out.print("> 찾으려는 양의 정수를 입력하세요  : ");
         int target = scanner.nextInt();
+        scanner.close();
 
         list[dataSize] = target; // 리스트의 마지막에 찾으려는 정수를 집어넣는다.
 
