@@ -1,4 +1,4 @@
-import java.util.Arrays;
+package October;
 
 public class Oct6 {
     static{
@@ -17,18 +17,18 @@ public class Oct6 {
     }
 }
 /*
-class Car{
+class October.Car{
     static int count; // 클래스변수 count. 자동으로 0으로 초기화된다.
     int serialNo; // 인스턴스변수 serialNo. 아직 초기화되지 않은 상태.
     String color; // 인스턴스변수 color.
 
-    Car(){ // 생성자 1
+    October.Car(){ // 생성자 1
         count++;
         serialNo = count;
         color = "white";
     }
 
-    Car(String color){ // 생성자 2
+    October.Car(String color){ // 생성자 2
         count++;
         serialNo = count; // 위의 생성자와 중복되는 코드가 사용.
         this.color = color;
@@ -93,18 +93,18 @@ String y = new String("initial"); // 참조형 (reference type) 변수의 명시
 예시
 
 // 초기화 블럭을 사용하지 않은 코드
-class Car{
+class October.Car{
   static int count; // 클래스변수 count. 자동으로 0으로 초기화된다.
   int serialNo; // 인스턴스변수 serialNo. 아직 초기화되지 않은 상태.
   String color; // 인스턴스변수 color.
 
-  Car(){ // 생성자 1
+  October.Car(){ // 생성자 1
   count++;
   serialNo = count;
   color = "white";
   }
 
-  Car(String color){ // 생성자 2
+  October.Car(String color){ // 생성자 2
   count++;
   serialNo = count; // 위의 생성자와 중복되는 코드가 사용.
   this.color = color;
@@ -112,7 +112,7 @@ class Car{
 }
 
 // 초기화블럭을 사용한 코드
-class Car{
+class October.Car{
   static int count;
   int serialNo;
   String color;
@@ -120,10 +120,10 @@ class Car{
   { // 인스턴스 초기화 블럭
   serialNo = ++count;
   }
-  Car(){
+  October.Car(){
   color = "white";
   }
-  Car(String color){
+  October.Car(String color){
   this.color = color;
   } // 중복된 코드를 사용할 필요가 없다.
 }
