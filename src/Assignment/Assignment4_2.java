@@ -29,7 +29,7 @@ public class Assignment4_2 {
             System.out.println("현재 tail index: " + tail);
             System.out.println("현재 middle index: " + middle);
 
-            if (head == tail){ // 남은 항목이 없으면 탐색 실패
+            if (head == tail | head > tail){ // 남은 항목이 없으면 탐색 실패. head > tail 이 되는 경우도 남는 항목이 없다.
                 System.out.println("> 탐색 실패");
                 find = false; // find 를 꺼준다.
                 break;
