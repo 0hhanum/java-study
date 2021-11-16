@@ -1,6 +1,5 @@
 package MidtermStudy;
 
-
 public class IntNode{ // 노드 클래스
     private int item;
     private IntNode next; // 주소
