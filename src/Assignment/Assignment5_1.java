@@ -37,15 +37,14 @@ public class Assignment5_1 {
                 try{
                     topOfStack = stack.peek();
                 } catch (EmptyStackException exception){ // peek 할 원소가 없는 경우.
-                    currentArea = topHeight * (i + 1);
+                    currentArea = topHeight * i; // width 는 현재 반복문을 도는 히스토그램 원소의 인덱스 한 칸 아래 만큼의 길이가 된다.
                     if(currentArea > maxArea) maxArea = currentArea;
                     break; // stack 에 원소가 없으면 반복문 탈출.
                 }
             }
-//            if (topOfStack < height) {
-//                // topOfStack 이 height 보다 작다면 height 을 stack 에 push.
+
             stack.push(height);
-//            }
+            System.out.println("현재 maxArea: " + maxArea);
         }
         System.out.println(maxArea);
 
