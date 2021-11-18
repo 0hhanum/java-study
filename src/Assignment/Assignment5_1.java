@@ -6,6 +6,8 @@ import java.util.Arrays;
 import java.util.EmptyStackException;
 import java.util.Scanner;
 
+// 히스토그램 문제
+// 2017110523 오한음
 public class Assignment5_1 {
     public static void main(String[] args){
 
