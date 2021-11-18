@@ -69,7 +69,7 @@ public class Assignment5_1 {
         // 히스토그램 배열을 처음부터 끝까지 돈 후 stack 에 남아있는 원소 처리.
         System.out.println("Stack 에 남아있는 원소들 처리");
         int stackSize = stack.size();
-        int lastIndex = histogram.length - 1;
+        int lastIndex = histogram.length - 1; // 인덱스는 0부터 시작하므로 길이 - 1 로 마지막 막대의 인덱스를 얻는다.
         for (int i=0; i<stackSize;i++ ){
             int currentArea;
             int currentIndex = stack.pop();

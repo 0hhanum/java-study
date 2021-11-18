@@ -1,5 +1,8 @@
 package Assignment;
 
+// 체이닝 기법 해시테이블
+// 2017110523 오한음
+
 public class Assignment5_3 {
     public static void main(String[] args){
         ChainingHashTable<String, Integer> hashTable = new ChainingHashTable<>(6);
