@@ -43,7 +43,7 @@ public class Assignment_QuickSort {
                     toggleL = true;
                     break;
                 }
-                else L = linkedList.findNode(tmpFrom++ + 1); // 찾지 못했다면 한 칸씩 오른쪽으로 이동하며 탐색 수행.
+                else L = linkedList.findNode(++tmpFrom); // 찾지 못했다면 한 칸씩 오른쪽으로 이동하며 탐색 수행.
                 if (L == R) break; // 둘이 만난다면 탈출.
             }
             while (true) {
@@ -51,7 +51,7 @@ public class Assignment_QuickSort {
                     toggleR = true;
                     break;
                 }
-                else if(L != R) R = linkedList.findNode(tmpTo-- - 1);
+                else if(L != R) R = linkedList.findNode(--tmpTo);
                 // 찾지 못했다면 한 칸씩 왼쪽으로 이동하며 탐색 수행. 이 때 위의 L 이동에서 R 과 겹쳤다면 이동하지 않고 종료한다.
                 if(L == R) break; // 둘이 만난다면 탈출.
             }
