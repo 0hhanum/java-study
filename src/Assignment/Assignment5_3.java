@@ -64,6 +64,7 @@ class ChainingHashTable<Key, Value>{
         }
         keys[i] = new Node(key, value, keys[i]);
         // 만약 해당 key 가 연결리스트에 없을 경우, keys[i](연결리스트) 의 첫 노드로 넣어준다.
+        // 이때, next 가 기존 첫 노드가 된다.
     }
 
     public Value get(Key key){

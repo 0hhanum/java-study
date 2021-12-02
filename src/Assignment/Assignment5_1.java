@@ -50,7 +50,7 @@ public class Assignment5_1 {
                     if(currentArea > maxArea) maxArea = currentArea;
                     break; // stack 에 원소가 없으면 반복문 탈출.
                 }
-                currentArea = topOfStack * ((i - 1) - nextIndex);
+                currentArea = topOfStack * ((i - 1) - nextIndex); // pdf 파일에 설명.
                 if(currentArea > maxArea) {
                     maxArea = currentArea; // pop() 으로 얻은 높이의 직사각형과 maxArea 를 비교.
                 }
