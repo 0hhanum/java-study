@@ -74,4 +74,16 @@ class DLinkedList{
         System.out.println();
     }
     // search 만드려면 null 검사 해야함.
+    public int getSize(){ return size; }
+
+    public DNode getNodeByIndex(int index){
+        if ((index - 1) > size) return null;
+        else{
+            DNode node = head.getNext(); // 시작 노드
+            for(int i=0; i<index;i++){
+                node = node.getNext();
+            }
+            return node;
+        }
+    }
 }
