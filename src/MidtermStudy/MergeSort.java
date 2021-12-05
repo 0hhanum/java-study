@@ -11,55 +11,62 @@ public class MergeSort {
         System.out.print("총 원소 개수 입력 > ");
         int length = scanner.nextInt();
         int[] array = new int[length];
+        int[] result = new int[array.length];
+
         for (int i=0; i<length; i++){
             System.out.println("원소 입력 (한 원소당 한 번씩 엔터) > ");
             array[i] = scanner.nextInt();
         }
         System.out.println("입력된 배열 : " + Arrays.toString(array));
 
-        array = sort(array, 0, array.length - 1);
+        sort(array, 0, array.length - 1, result);
+        System.out.println("정렬된 배열 : " + Arrays.toString(result));
+
     }
 
-    public static int[] sort(int[] array, int from, int to){
-        if (to - from >= 1){
-            int middle = (to - from) / 2;
-             array = sort(array, from, middle);
-             array = sort(array, middle + 1, to);
-             array = merge(array, from, middle, to);
+    public static void sort(int[] array, int from, int to, int[] result){
+        if (to > from){
+            int middle = (to + from) / 2;
+             sort(array, from, middle, result);
+             sort(array, middle + 1, to, result);
+             merge(array, from, middle, to, result);
         }
-        return Arrays.copyOfRange(array, from, to);
     }
-    public static int[] merge(int[] array, int from, int middle, int to) {
+    public static void merge(int[] array, int from, int middle, int to, int[] result) {
         int i = from; // 첫 번째 부분집합의 첫 번째 인덱스
         int j = middle + 1; // 두 번째 부분집합의 첫 번째 인덱스
-        int k = from; // 병합 집합의 첫째 원소 설정
-        int[] result = new int[to - from];
+        int index = from; // 병합 후 배열의 시작 인덱스
 
         while (i <= middle && j <= to) {
             // 각 부분집합 별로 대소를 비교해 result 를 채워나감.
             if (array[i] <= array[j]) {
-                result[k] = array[i];
+                result[index] = array[i];
                 i++;
             } else {
-                result[k] = array[j];
+                result[index] = array[j];
                 j++;
             }
-            k++;
+            index++;
         }
         // 첫 번째 or 두 번째 남아있는 부분집합을 붙인다. -> 상위 병합 단계에서 정렬 완료되었기 때문에 그냥 붙임
         if (i > middle) {
             while (j <= to) {
-                result[k] = array[j];
+                result[index] = array[j];
                 j++;
-                k++;
+                index++;
             }
         } else {
             while (i <= middle) {
-                result[k] = array[i];
+                result[index] = array[i];
                 i++;
-                k++;
+                index++;
             }
         }
-        return result;
+        // array 에 반영
+        for(int loop=from; loop<= to; loop++){
+            array[loop] = result[loop];
+        }
+        System.out.print("중간 점검: ");
+        System.out.println(Arrays.toString(result));
     }
 }
